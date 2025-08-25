@@ -12,8 +12,8 @@ export const validarRegistroUsuario = [
     .isLength({ max: 20 }).withMessage("Nombre demasiado largo"),
   check("apellido").notEmpty().withMessage("Apellido obligatorio")
     .isLength({ max: 20 }).withMessage("Apellido demasiado largo"),
-  check("email").isEmail().withMessage("Correo inválido"),
-  check("password").isLength({ min: 8 }).withMessage("La contraseña debe tener mínimo 8 caracteres"),
+  check("email").isEmail().withMessage("El correo no es valido"),
+  check("password").isLength({ min: 6 }).withMessage("La contraseña debe tener mínimo 6 caracteres"),
   validarCampos
 ];
 
@@ -25,26 +25,26 @@ export const validarLoginUsuario = [
 
 // Estudiantes
 export const validarCrearEstudiante = [
-  check("nombre").notEmpty().withMessage("Nombre obligatorio"),
-  check("apellido").notEmpty().withMessage("Apellido obligatorio"),
-  check("cedula").isLength({ min: 10, max: 10 }).withMessage("Cédula debe tener 10 dígitos"),
-  check("email").isEmail().withMessage("Correo inválido"),
+  check("nombre").notEmpty().withMessage("EL nombre es obligatorio"),
+  check("apellido").notEmpty().withMessage("El apellido obligatorio"),
+  check("cedula").isLength({ min: 10, max: 10 }).withMessage("La cédula debe ser de 10 digitos"),
+  check("email").isEmail().withMessage("Correo no valido"),
   validarCampos
 ];
 
 // Materias
 export const validarCrearMateria = [
-  check("nombre").notEmpty().withMessage("Nombre obligatorio"),
-  check("codigo").notEmpty().withMessage("Código obligatorio"),
-  check("creditos").isInt({ min: 1 }).withMessage("Créditos debe ser un número positivo"),
+  check("nombre").notEmpty().withMessage("El nombre de la materia es obligatorio"),
+  check("codigo").notEmpty().withMessage("El codigo de la materia es obligatorio"),
+  check("creditos").isInt({ min: 1 }).withMessage("Los créditos deben ser positivo"),
   validarCampos
 ];
 
 // Matrículas
 export const validarCrearMatricula = [
-  check("codigo").notEmpty().withMessage("Código obligatorio"),
-  check("estudiante").notEmpty().withMessage("Debe indicar estudiante"),
-  check("materia").notEmpty().withMessage("Debe indicar materia"),
+  check("codigo").notEmpty().withMessage("Código obligatorio!"),
+  check("estudiante").notEmpty().withMessage("Debe indicar el estudiante"),
+  check("materia").notEmpty().withMessage("Debe indicar la materia"),
   validarCampos
 ];
 
