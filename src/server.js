@@ -25,6 +25,12 @@ app.get(
         res.send("Servidor Activo")
 })
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Algo salió mal en el servidor!')
+})
+
+
 //Rutas usuarios
 app.use('/api',routerUsuarios)
 //Rutas materias 
